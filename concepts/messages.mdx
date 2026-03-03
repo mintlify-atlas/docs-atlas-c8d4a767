@@ -346,17 +346,23 @@ const assistantMessage = resultToMessage(result);
 messages.push(assistantMessage);
 ```
 
+By default, `resultToMessage` includes reasoning content in the message. You can exclude it:
+
+```typescript
+const assistantMessage = resultToMessage(result, { includeReasoning: false });
+```
+
 ### assistantMessage
 
-Create an assistant message from parts:
+Create a simple assistant message from text:
 
 ```typescript
 import { assistantMessage } from '@core-ai/core-ai';
 
-const message = assistantMessage([
-  { type: 'text', text: 'Hello!' },
-]);
+const message = assistantMessage('Hello! How can I help you?');
 ```
+
+This is a convenience function that creates an assistant message with a single text part.
 
 ## Tool Call Flow
 
